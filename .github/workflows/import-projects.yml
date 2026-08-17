@@ -1,0 +1,66 @@
+name: Import projects
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    if: github.event_name == 'workflow_dispatch' || github.event.head_commit.message != 'Import projects'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Alex Lab
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Import existing projects
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          declare -A PROJECTS=(
+            ["generators/cocktail-pairing"]="cocktail-pairing-generator"
+            ["generators/pairing-aesthetic"]="pairing-aesthetic-generator"
+            ["generators/lily-dale-aesthetic"]="lily-dale-aesthetic-generator"
+            ["generators/lily-dale-astrological-herald"]="lily-dale-astrological-herald"
+            ["games/cuelebre-snake"]="cuelebre-snake"
+            ["games/ghost-hunt-lily-dale"]="ghost-hunt-lily-dale"
+            ["games/singer-rhythm-game"]="singer-rhythm-game"
+          )
+
+          for TARGET in "${!PROJECTS[@]}"; do
+            REPO="${PROJECTS[$TARGET]}"
+            TMP="/tmp/${REPO}"
+            mkdir -p "$TMP" "$(dirname "$TARGET")"
+
+            echo "Importing $REPO -> $TARGET"
+            curl -L --fail --silent --show-error \
+              "https://github.com/alex-sforza/${REPO}/archive/refs/heads/main.tar.gz" \
+              -o "/tmp/${REPO}.tar.gz"
+            tar -xzf "/tmp/${REPO}.tar.gz" -C /tmp
+            SRC="/tmp/${REPO}-main"
+
+            mkdir -p "$TARGET"
+            rsync -a --delete \
+              --exclude='.git' \
+              --exclude='.github' \
+              "$SRC/" "$TARGET/"
+          done
+
+      - name: Commit imported projects
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add games generators
+          if git diff --cached --quiet; then
+            echo "Nothing to commit."
+            exit 0
+          fi
+          git commit -m "Import projects"
+          git push origin main
