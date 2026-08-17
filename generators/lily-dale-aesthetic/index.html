@@ -1,0 +1,2672 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lily Dale Aesthetic Archive — генератор эстетик">
+  <title>Lily Dale Aesthetic Archive</title>
+<style>
+  html,
+  body {
+    margin: 0;
+    min-height: 100%;
+    background:
+      linear-gradient(
+        145deg,
+        #53624b,
+        #465540 50%,
+        #384732
+      );
+  }
+
+  body {
+    min-height: 100vh;
+  }
+</style>
+</head>
+<body>
+
+<!-- =====================================================
+       ЗАГОЛОВОК ГЕНЕРАТОРА
+       ===================================================== -->
+
+<div class="aesthetic-generator">
+
+  <div class="aesthetic-generator-title">
+
+    <span>LILY DALE ARCHIVES</span>
+
+    <h2>Lily Dale Aesthetic Archive</h2>
+
+    <p>
+      Заполните форму и создайте готовую эстетику для публикации
+    </p>
+
+  </div>
+
+
+  <!-- =====================================================
+       ШАПКА ЭСТЕТИКИ
+       ===================================================== -->
+
+  <div class="aesthetic-fill-section aesthetic-admin-section">
+
+    <div class="aesthetic-section-title">
+      ☾ Эстетика
+    </div>
+
+    <label>
+      <span>Название эстетики</span>
+
+      <input
+        type="text"
+        data-field="themeTitle"
+        placeholder="Например: КУЛИНАРИЯ"
+      >
+    </label>
+
+
+    <label>
+      <span>Картинка эстетики</span>
+
+      <input
+        type="url"
+        data-field="themeImg"
+        placeholder="ССЫЛКА НА КАРТИНКУ"
+      >
+    </label>
+
+
+    <label>
+      <span>Описание эстетики</span>
+
+      <input
+        type="text"
+        data-field="themeSubtitle"
+        placeholder="Короткое описание эстетики"
+      >
+    </label>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       ПЕРСОНАЖ
+       ===================================================== -->
+
+  <div class="aesthetic-fill-section aesthetic-character-section">
+
+    <div class="aesthetic-section-title">
+      ✦ Персонаж
+    </div>
+
+    <div class="character-fill-row">
+
+      <label>
+        <span>Ник / имя персонажа</span>
+
+        <input
+          type="text"
+          data-field="charName"
+          placeholder="ИМЯ ИЛИ НИК"
+        >
+      </label>
+
+
+      <label>
+        <span>Портрет персонажа</span>
+
+        <input
+          type="url"
+          data-field="charImg"
+          placeholder="ССЫЛКА НА ПОРТРЕТ"
+        >
+      </label>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       ШЕСТЬ ЭСТЕТИК
+       ===================================================== -->
+
+  <div class="aesthetic-answers-grid">
+
+
+    <!-- 01 -->
+
+    <div class="aesthetic-fill-section aesthetic-answer-section">
+
+      <div class="aesthetic-section-title">
+        01
+      </div>
+
+      <label>
+        <span>Вопрос / категория</span>
+
+        <input
+          type="text"
+          data-field="category1"
+          placeholder="Например: Блюдо"
+        >
+      </label>
+
+      <label>
+        <span>Ответ</span>
+
+        <input
+          type="text"
+          data-field="answer1"
+          placeholder="ОТВЕТ"
+        >
+      </label>
+
+      <label>
+        <span>Картинка</span>
+
+        <input
+          type="url"
+          data-field="image1"
+          placeholder="ССЫЛКА НА КАРТИНКУ"
+        >
+      </label>
+
+    </div>
+
+
+
+    <!-- 02 -->
+
+    <div class="aesthetic-fill-section aesthetic-answer-section">
+
+      <div class="aesthetic-section-title">
+        02
+      </div>
+
+      <label>
+        <span>Вопрос / категория</span>
+
+        <input
+          type="text"
+          data-field="category2"
+          placeholder="Например: Ингредиент"
+        >
+      </label>
+
+      <label>
+        <span>Ответ</span>
+
+        <input
+          type="text"
+          data-field="answer2"
+          placeholder="ОТВЕТ"
+        >
+      </label>
+
+      <label>
+        <span>Картинка</span>
+
+        <input
+          type="url"
+          data-field="image2"
+          placeholder="ССЫЛКА НА КАРТИНКУ"
+        >
+      </label>
+
+    </div>
+
+
+
+    <!-- 03 -->
+
+    <div class="aesthetic-fill-section aesthetic-answer-section">
+
+      <div class="aesthetic-section-title">
+        03
+      </div>
+
+      <label>
+        <span>Вопрос / категория</span>
+
+        <input
+          type="text"
+          data-field="category3"
+          placeholder="Например: Напиток"
+        >
+      </label>
+
+      <label>
+        <span>Ответ</span>
+
+        <input
+          type="text"
+          data-field="answer3"
+          placeholder="ОТВЕТ"
+        >
+      </label>
+
+      <label>
+        <span>Картинка</span>
+
+        <input
+          type="url"
+          data-field="image3"
+          placeholder="ССЫЛКА НА КАРТИНКУ"
+        >
+      </label>
+
+    </div>
+
+
+
+    <!-- 04 -->
+
+    <div class="aesthetic-fill-section aesthetic-answer-section">
+
+      <div class="aesthetic-section-title">
+        04
+      </div>
+
+      <label>
+        <span>Вопрос / категория</span>
+
+        <input
+          type="text"
+          data-field="category4"
+          placeholder="Например: Десерт"
+        >
+      </label>
+
+      <label>
+        <span>Ответ</span>
+
+        <input
+          type="text"
+          data-field="answer4"
+          placeholder="ОТВЕТ"
+        >
+      </label>
+
+      <label>
+        <span>Картинка</span>
+
+        <input
+          type="url"
+          data-field="image4"
+          placeholder="ССЫЛКА НА КАРТИНКУ"
+        >
+      </label>
+
+    </div>
+
+
+
+    <!-- 05 -->
+
+    <div class="aesthetic-fill-section aesthetic-answer-section">
+
+      <div class="aesthetic-section-title">
+        05
+      </div>
+
+      <label>
+        <span>Вопрос / категория</span>
+
+        <input
+          type="text"
+          data-field="category5"
+          placeholder="Например: Аромат"
+        >
+      </label>
+
+      <label>
+        <span>Ответ</span>
+
+        <input
+          type="text"
+          data-field="answer5"
+          placeholder="ОТВЕТ"
+        >
+      </label>
+
+      <label>
+        <span>Картинка</span>
+
+        <input
+          type="url"
+          data-field="image5"
+          placeholder="ССЫЛКА НА КАРТИНКУ"
+        >
+      </label>
+
+    </div>
+
+
+
+    <!-- 06 -->
+
+    <div class="aesthetic-fill-section aesthetic-answer-section">
+
+      <div class="aesthetic-section-title">
+        06
+      </div>
+
+      <label>
+        <span>Вопрос / категория</span>
+
+        <input
+          type="text"
+          data-field="category6"
+          placeholder="Например: Вкус"
+        >
+      </label>
+
+      <label>
+        <span>Ответ</span>
+
+        <input
+          type="text"
+          data-field="answer6"
+          placeholder="ОТВЕТ"
+        >
+      </label>
+
+      <label>
+        <span>Картинка</span>
+
+        <input
+          type="url"
+          data-field="image6"
+          placeholder="ССЫЛКА НА КАРТИНКУ"
+        >
+      </label>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       КНОПКА ГЕНЕРАЦИИ
+       ===================================================== -->
+
+  <button
+    type="button"
+    class="aesthetic-generate"
+    onclick="generateAestheticCode()"
+  >
+    ✦ Предпросмотр эстетики
+  </button>
+
+
+
+  <!-- =====================================================
+       РЕЗУЛЬТАТ
+       ===================================================== -->
+
+  <div
+    class="aesthetic-result"
+    id="aestheticResult"
+    style="display:none;"
+  >
+
+    <div class="aesthetic-result-title">
+      ГОТОВАЯ ЭСТЕТИКА
+    </div>
+
+    <p class="aesthetic-result-info">
+      Здесь можно посмотреть результат, скачать его как PNG
+      или получить HTML-код для публикации на форуме.
+    </p>
+
+    <div class="aesthetic-preview-shell">
+      <div id="aestheticPreview"></div>
+    </div>
+
+    <div class="aesthetic-result-actions">
+
+      <button
+        type="button"
+        class="aesthetic-download"
+        id="aestheticGeneratePng"
+        onclick="generateAestheticPNG()"
+      >
+        ✦ Сгенерировать эстетику как PNG
+      </button>
+
+      <button
+        type="button"
+        class="aesthetic-code-button"
+        onclick="toggleAestheticCode()"
+      >
+        ⧉ Получить HTML-код
+      </button>
+
+    </div>
+
+    <div
+      id="aestheticCodeBox"
+      class="aesthetic-code-box"
+      style="display:none;"
+    >
+
+      <div class="aesthetic-code-title">
+        HTML-КОД ДЛЯ ПУБЛИКАЦИИ
+      </div>
+
+      <textarea
+        id="aestheticCode"
+        readonly
+      ></textarea>
+
+      <button
+        type="button"
+        class="aesthetic-copy"
+        onclick="copyAestheticCode()"
+      >
+        ⧉ Скопировать HTML-код
+      </button>
+
+      <div
+        id="aestheticCopied"
+        class="aesthetic-copied"
+      >
+        Код скопирован
+      </div>
+
+    </div>
+
+    <div
+      id="aestheticPngStatus"
+      class="aesthetic-copied"
+    >
+      PNG-версия готова
+    </div>
+
+    <div
+      id="aestheticPngResult"
+      class="aesthetic-png-result"
+      style="display:none;"
+    >
+      <div class="aesthetic-png-result-title">
+        PNG-ВЕРСИЯ
+      </div>
+
+      <img
+        id="aestheticPngImage"
+        class="aesthetic-png-image"
+        alt="Сгенерированная эстетика"
+      >
+
+      <p class="aesthetic-png-hint">
+        Изображение уже сгенерировано.
+        Сохраните его обычным способом через браузер.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+</div>
+
+<style>
+
+/* ==========================================================
+   ГЕНЕРАТОР
+   ========================================================== */
+
+.aesthetic-generator {
+
+  --moss: #5a6853;
+  --moss-dark: #354132;
+  --moss-deep: #303e2f;
+
+  --sage: #7b8872;
+
+  --cream: #e5e2ce;
+  --cream-light: #f5f1e4;
+
+  --brown: #766b55;
+  --gold: #b29a68;
+
+  --ink: #394136;
+  --ink-soft: #646b5b;
+
+  --line: rgba(72,82,62,.26);
+
+  width: min(800px, 94%);
+
+  margin: 30px auto;
+
+  padding: 30px;
+
+  box-sizing: border-box;
+
+  position: relative;
+
+  color: var(--ink);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  background:
+    radial-gradient(
+      circle at 15% 10%,
+      rgba(255,255,255,.08),
+      transparent 30%
+    ),
+    linear-gradient(
+      145deg,
+      #5a6853,
+      #4d5b48 50%,
+      #354132
+    );
+
+  border: 1px solid rgba(226,221,193,.34);
+
+  box-shadow:
+    0 15px 40px rgba(25,31,24,.25);
+}
+
+
+.aesthetic-generator::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 10px;
+
+  border: 1px solid
+    rgba(229,222,192,.34);
+
+  pointer-events: none;
+}
+
+
+
+/* ==========================================================
+   ЗАГОЛОВОК
+   ========================================================== */
+
+.aesthetic-generator-title {
+
+  position: relative;
+
+  z-index: 2;
+
+  margin-bottom: 28px;
+
+  padding: 18px 15px;
+
+  text-align: center;
+
+  background:
+    rgba(48,61,46,.96);
+
+  border:
+    1px solid
+    rgba(226,221,193,.28);
+
+  box-shadow:
+    0 5px 18px rgba(20,25,18,.18);
+}
+
+
+.aesthetic-generator-title span {
+
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #d6ca9f;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 10px;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+}
+
+
+.aesthetic-generator-title h2 {
+
+  margin: 0;
+
+  color: #f2ead3;
+
+  font-size: 27px;
+
+  font-weight: normal;
+
+  font-style: italic;
+}
+
+
+.aesthetic-generator-title p {
+
+  margin: 10px auto 0;
+
+  max-width: 650px;
+
+  color: #ded9c4;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+
+  text-align: center;
+
+  font-style: italic;
+}
+
+
+
+/* ==========================================================
+   СЕКЦИИ
+   ========================================================== */
+
+.aesthetic-fill-section {
+
+  position: relative;
+
+  z-index: 2;
+
+  padding: 18px;
+
+  box-sizing: border-box;
+
+  background:
+    rgba(230,227,207,.98);
+
+  border:
+    1px solid
+    rgba(214,207,178,.72);
+
+  box-shadow:
+    0 4px 14px
+    rgba(24,31,22,.16);
+}
+
+
+.aesthetic-section-title {
+
+  margin-bottom: 15px;
+
+  color: var(--moss-dark);
+
+  font-family: Arial, sans-serif;
+
+  font-size: 11px;
+
+  font-weight: bold;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+}
+
+
+
+/* ==========================================================
+   АДМИНСКАЯ ШАПКА
+   ========================================================== */
+
+.aesthetic-admin-section {
+
+  margin-bottom: 14px;
+
+  border-top:
+    4px solid var(--moss-dark);
+}
+
+
+
+/* ==========================================================
+   ПЕРСОНАЖ
+   ========================================================== */
+
+.aesthetic-character-section {
+
+  margin-bottom: 18px;
+}
+
+
+.character-fill-row {
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 15px;
+}
+
+
+
+/* ==========================================================
+   СЕТКА
+   ========================================================== */
+
+.aesthetic-answers-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 14px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+
+.aesthetic-answer-section {
+
+  min-width: 0;
+}
+
+
+
+/* ==========================================================
+   ПОЛЯ
+   ========================================================== */
+
+.aesthetic-fill-section label {
+
+  display: block;
+
+  margin-bottom: 12px;
+}
+
+
+.aesthetic-fill-section label:last-child {
+
+  margin-bottom: 0;
+}
+
+
+.aesthetic-fill-section label span {
+
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: var(--ink-soft);
+
+  font-family: Arial, sans-serif;
+
+  font-size: 10px;
+
+  letter-spacing: 1px;
+}
+
+
+.aesthetic-fill-section input {
+
+  display: block;
+
+  width: 100%;
+
+  min-width: 0;
+
+  box-sizing: border-box;
+
+  padding: 10px 11px;
+
+  color: var(--ink);
+
+  background:
+    var(--cream-light);
+
+  border:
+    1px solid var(--line);
+
+  outline: none;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 13px;
+
+  transition:
+    border-color .2s ease,
+    box-shadow .2s ease;
+}
+
+
+.aesthetic-fill-section input:focus {
+
+  border-color:
+    var(--moss);
+
+  box-shadow:
+    0 0 0 2px
+    rgba(86,102,77,.16);
+}
+
+
+.aesthetic-fill-section input::placeholder {
+
+  color: #929588;
+
+  font-style: italic;
+}
+
+
+
+/* ==========================================================
+   КНОПКА ГЕНЕРАЦИИ
+   ========================================================== */
+
+.aesthetic-generate {
+
+  position: relative;
+
+  z-index: 2;
+
+  display: block;
+
+  width: 100%;
+
+  margin-top: 20px;
+
+  padding: 15px;
+
+  color: #f2ead7;
+
+  background:
+    var(--moss-dark);
+
+  border:
+    1px solid
+    rgba(222,214,177,.36);
+
+  cursor: pointer;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 14px;
+
+  letter-spacing: 1px;
+
+  box-shadow:
+    0 5px 14px
+    rgba(24,30,21,.2);
+
+  transition:
+    background .2s ease,
+    transform .2s ease;
+}
+
+
+.aesthetic-generate:hover {
+
+  background:
+    var(--moss-deep);
+
+  transform:
+    translateY(-1px);
+}
+
+
+
+/* ==========================================================
+   РЕЗУЛЬТАТ
+   ========================================================== */
+
+.aesthetic-result {
+
+  position: relative;
+
+  z-index: 2;
+
+  margin-top: 28px;
+
+  padding: 25px 0 0;
+
+  border-top:
+    1px solid
+    rgba(222,214,180,.3);
+}
+
+
+.aesthetic-result-title {
+
+  color: #d3c38f;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 11px;
+
+  font-weight: bold;
+
+  letter-spacing: 3px;
+
+  text-align: center;
+}
+
+
+.aesthetic-result-info {
+
+  margin: 10px auto 15px;
+
+  color: #dedbc8;
+
+  font-size: 13px;
+
+  text-align: center;
+}
+
+
+
+
+
+.aesthetic-copied {
+
+  display: none;
+
+  margin-top: 9px;
+
+  color: #d8c992;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 10px;
+
+  text-align: center;
+
+  letter-spacing: 1px;
+}
+
+
+
+/* ==========================================================
+   РЕЗУЛЬТАТ: PNG + HTML
+   ========================================================== */
+
+.aesthetic-result-actions {
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 10px;
+
+  margin-top: 14px;
+}
+
+
+.aesthetic-code-button {
+
+  display: block;
+
+  width: 100%;
+
+  padding: 15px;
+
+  color: #f2ead7;
+
+  background:
+    #354132;
+
+  border:
+    1px solid
+    rgba(222,214,177,.36);
+
+  cursor: pointer;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 14px;
+
+  letter-spacing: 1px;
+
+  box-shadow:
+    0 5px 14px
+    rgba(24,30,21,.2);
+
+  transition:
+    background .2s ease,
+    transform .2s ease;
+}
+
+
+.aesthetic-code-button:hover {
+
+  background:
+    #303e2f;
+
+  transform:
+    translateY(-1px);
+}
+
+
+.aesthetic-code-box {
+
+  margin-top: 14px;
+
+  padding: 16px;
+
+  background:
+    rgba(230,227,207,.98);
+
+  border:
+    1px solid
+    rgba(214,207,178,.72);
+
+  box-shadow:
+    0 4px 14px
+    rgba(24,31,22,.16);
+}
+
+
+.aesthetic-code-title {
+
+  margin-bottom: 10px;
+
+  color: #354132;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 10px;
+
+  font-weight: bold;
+
+  letter-spacing: 2px;
+}
+
+
+#aestheticCode {
+
+  display: block;
+
+  width: 100%;
+
+  min-height: 260px;
+
+  box-sizing: border-box;
+
+  padding: 12px;
+
+  resize: vertical;
+
+  color: #394136;
+
+  background:
+    #f5f1e4;
+
+  border:
+    1px solid
+    rgba(72,82,62,.34);
+
+  outline: none;
+
+  font-family:
+    Consolas,
+    "Courier New",
+    monospace;
+
+  font-size: 11px;
+
+  line-height: 1.45;
+}
+
+
+.aesthetic-copy {
+
+  display: block;
+
+  width: 100%;
+
+  margin-top: 10px;
+
+  padding: 12px;
+
+  color: #f2ead7;
+
+  background:
+    #354132;
+
+  border:
+    1px solid
+    rgba(222,214,177,.36);
+
+  cursor: pointer;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 13px;
+
+  letter-spacing: 1px;
+}
+
+
+.aesthetic-copy:hover {
+
+  background:
+    #303e2f;
+}
+
+
+/* ==========================================================
+   ПРЕДПРОСМОТР ЭСТЕТИКИ
+   ========================================================== */
+
+
+/* ==========================================================
+   ПРЕДПРОСМОТР — ЭСТЕТИКА ЦЕЛИКОМ В ОКНЕ
+   ========================================================== */
+
+.aesthetic-preview-shell {
+
+  width: 100%;
+
+  margin: 20px auto 0;
+
+  padding: 0;
+
+  overflow: hidden;
+
+  background: transparent;
+}
+
+
+#aestheticPreview {
+
+  width: 100%;
+
+  margin: 0 auto;
+
+  overflow: visible;
+
+}
+
+
+#aestheticPreview .lily-aesthetic {
+
+  /*
+   * Сама эстетика остаётся 800px.
+   * JS только визуально масштабирует её до ширины окна.
+   */
+  width: 800px !important;
+
+  max-width: none !important;
+
+  margin: 0 auto !important;
+
+  transform-origin: top left;
+
+}
+
+
+.aesthetic-png-result {
+
+  width: 100%;
+
+  margin-top: 18px;
+
+  padding: 16px;
+
+  box-sizing: border-box;
+
+  background: #e6e3cf;
+
+  border: 1px solid rgba(214,207,178,.72);
+
+  text-align: center;
+
+}
+
+
+.aesthetic-png-image {
+
+  display: block;
+
+  width: 800px;
+
+  max-width: 100%;
+
+  height: auto;
+
+  margin: 0 auto;
+
+  border: 1px solid rgba(72,82,62,.26);
+
+}
+
+
+
+/* ==========================================================
+   АДАПТИВ
+   ========================================================== */
+
+@media (max-width: 700px) {
+
+  .aesthetic-generator {
+
+    padding: 22px 15px;
+  }
+
+
+  .aesthetic-answers-grid {
+
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+
+  .character-fill-row {
+
+    grid-template-columns:
+      1fr;
+  }
+
+}
+
+
+@media (max-width: 430px) {
+
+
+
+  .aesthetic-answers-grid {
+
+    grid-template-columns:
+      1fr;
+  }
+
+}
+
+</style>
+
+
+
+<script>
+
+/* ==========================================================
+   HTML2CANVAS — экспорт готовой эстетики в PNG
+   ========================================================== */
+
+function loadAestheticCanvasLibrary() {
+
+  if (window.html2canvas) {
+    return Promise.resolve(window.html2canvas);
+  }
+
+  return new Promise(function(resolve, reject) {
+
+    var existing =
+      document.querySelector(
+        'script[data-aesthetic-html2canvas]'
+      );
+
+    if (existing) {
+
+      existing.addEventListener(
+        "load",
+        function() {
+          resolve(window.html2canvas);
+        }
+      );
+
+      existing.addEventListener(
+        "error",
+        reject
+      );
+
+      return;
+    }
+
+    var script =
+      document.createElement("script");
+
+    script.src =
+      "https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js";
+
+    script.async = true;
+
+    script.dataset.aestheticHtml2canvas = "1";
+
+    script.onload = function() {
+      resolve(window.html2canvas);
+    };
+
+    script.onerror = function() {
+      reject(
+        new Error(
+          "Не удалось загрузить библиотеку html2canvas."
+        )
+      );
+    };
+
+    document.head.appendChild(script);
+
+  });
+
+}
+
+
+/* ==========================================================
+   ПОЛУЧЕНИЕ ДАННЫХ
+   ========================================================== */
+
+function aestheticGet(field) {
+
+  const element =
+    document.querySelector(
+      '[data-field="' + field + '"]'
+    );
+
+  return element
+    ? element.value.trim()
+    : "";
+
+}
+
+
+
+/* ==========================================================
+   ЭКРАНИРОВАНИЕ HTML
+   Защищает готовый код от случайного
+   попадания кавычек и HTML-тегов
+   ========================================================== */
+
+function aestheticEscape(value) {
+
+  return String(value || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "'");
+}
+
+
+
+/* ==========================================================
+   ГЕНЕРАЦИЯ
+   ========================================================== */
+
+function generateAestheticCode() {
+
+  const themeTitle =
+    aestheticEscape(
+      aestheticGet("themeTitle")
+    );
+
+  const themeImg =
+    aestheticEscape(
+      aestheticGet("themeImg")
+    );
+
+  const themeSubtitle =
+    aestheticEscape(
+      aestheticGet("themeSubtitle")
+    );
+
+  const charName =
+    aestheticEscape(
+      aestheticGet("charName")
+    );
+
+  const charImg =
+    aestheticEscape(
+      aestheticGet("charImg")
+    );
+
+
+  let cards = "";
+
+
+  /* --------------------------------------------------------
+     ШЕСТЬ КАРТОЧЕК
+     -------------------------------------------------------- */
+
+  for (
+    let i = 1;
+    i <= 6;
+    i++
+  ) {
+
+    const category =
+      aestheticEscape(
+        aestheticGet(
+          "category" + i
+        )
+      );
+
+    const image =
+      aestheticEscape(
+        aestheticGet(
+          "image" + i
+        )
+      );
+
+    const answer =
+      aestheticEscape(
+        aestheticGet(
+          "answer" + i
+        )
+      );
+
+
+    cards += `
+
+      <div class="aesthetic-item">
+
+        <span class="aesthetic-item-number">
+          ${String(i).padStart(2, "0")}
+        </span>
+
+        <div class="aesthetic-item-image-wrap">
+
+          <img
+            src="${image}"
+            alt="${category}"
+            class="aesthetic-item-image"
+          >
+
+        </div>
+
+        <div class="aesthetic-item-label">
+          ${category}
+        </div>
+
+        <div class="aesthetic-answer">
+          ${answer}
+        </div>
+
+      </div>
+
+    `;
+  }
+
+
+
+  /* ========================================================
+     ГОТОВЫЙ КОД
+     ======================================================== */
+
+  const code = `
+
+<!-- =====================================================
+     LILY DALE AESTHETIC ARCHIVE
+     ===================================================== -->
+
+<style>
+
+.lily-aesthetic {
+
+  width: min(800px, 94%);
+
+  margin: 25px auto;
+
+  padding: 14px;
+
+  box-sizing: border-box;
+
+  color: #394136;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  background:
+    linear-gradient(
+      145deg,
+      #53624b,
+      #465540 50%,
+      #384732
+    );
+
+  border:
+    1px solid
+    rgba(225,218,185,.3);
+
+  box-shadow:
+    0 12px 30px
+    rgba(25,31,23,.25);
+
+}
+
+
+.lily-aesthetic * {
+
+  box-sizing: border-box;
+
+}
+
+
+
+/* =====================================================
+   ШАПКА
+   ===================================================== */
+
+.aesthetic-theme-header {
+
+  min-height: 190px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 35px 25px;
+
+  text-align: center;
+
+  background-size: cover;
+
+  background-position: center;
+
+  border:
+    1px solid
+    rgba(226,218,184,.3);
+
+  position: relative;
+
+}
+
+
+.aesthetic-theme-header::after {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 9px;
+
+  border:
+    1px solid
+    rgba(232,224,193,.28);
+
+  pointer-events: none;
+
+}
+
+
+.aesthetic-theme-header-content {
+
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 700px;
+
+  padding: 22px 30px;
+
+  background:
+    rgba(38,49,36,.72);
+
+  border:
+    1px solid
+    rgba(225,216,181,.25);
+
+}
+
+
+.aesthetic-theme-label {
+
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: #d0c18e;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 9px;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+
+}
+
+
+.aesthetic-theme-title {
+
+  margin: 0;
+
+  color: #f2ead3;
+
+  font-size: 29px;
+
+  font-weight: normal;
+
+  font-style: italic;
+
+}
+
+
+.aesthetic-theme-subtitle {
+
+  margin: 10px 0 0;
+
+  color: #ded9c4;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+
+}
+
+
+
+/* =====================================================
+   ОСНОВНОЙ БЛОК
+   ===================================================== */
+
+.aesthetic-main {
+
+  display: grid;
+
+  grid-template-columns:
+    220px 1fr;
+
+  gap: 18px;
+
+  margin-top: 18px;
+
+}
+
+
+
+/* =====================================================
+   ПЕРСОНАЖ
+   ===================================================== */
+
+.aesthetic-character {
+
+  padding: 12px;
+
+  text-align: center;
+
+  background:
+    #eee8d6;
+
+  border:
+    1px solid
+    rgba(216,207,170,.65);
+
+}
+
+
+.aesthetic-character-image {
+
+  display: block;
+
+  width: 100%;
+
+  aspect-ratio: 3 / 4;
+
+  object-fit: cover;
+
+  margin-bottom: 12px;
+
+}
+
+
+.aesthetic-character-name {
+
+  padding: 10px 5px;
+
+  color: #3d4b39;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 12px;
+
+  font-weight: bold;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+}
+
+
+
+/* =====================================================
+   СЕТКА ЭСТЕТИК
+   ===================================================== */
+
+.aesthetic-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 14px;
+
+}
+
+
+
+/* =====================================================
+   КАРТОЧКА
+   ===================================================== */
+
+.aesthetic-item {
+
+  position: relative;
+
+  padding: 10px;
+
+  text-align: center;
+
+  background:
+    #eee8d6;
+
+  border:
+    1px solid
+    rgba(216,207,170,.65);
+
+  box-shadow:
+    0 4px 10px
+    rgba(26,32,24,.12);
+
+}
+
+
+.aesthetic-item-number {
+
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #817b62;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 8px;
+
+  letter-spacing: 2px;
+}
+
+
+.aesthetic-item-image-wrap {
+
+  width: 100%;
+
+  aspect-ratio: 1 / 1;
+
+  overflow: hidden;
+
+  background: #c5c5ae;
+
+}
+
+
+.aesthetic-item-image {
+
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+}
+
+
+.aesthetic-item-label {
+
+  margin-top: 10px;
+
+  color: #354132;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 12px;
+
+  font-weight: bold;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+
+}
+
+
+.aesthetic-answer {
+
+  margin: 8px 4px 3px;
+
+  color: #646858;
+
+  font-size: 13px;
+
+  line-height: 1.45;
+
+  font-style: italic;
+
+}
+
+
+
+/* =====================================================
+   ФУТЕР
+   ===================================================== */
+
+.aesthetic-footer {
+
+  margin-top: 18px;
+
+  padding: 12px;
+
+  color: #d2c89f;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 8px;
+
+  letter-spacing: 3px;
+
+  text-align: center;
+
+  text-transform: uppercase;
+
+  border-top:
+    1px solid
+    rgba(222,214,178,.25);
+
+}
+
+
+
+/* =====================================================
+   АДАПТИВ
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+  .aesthetic-main {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+
+  .aesthetic-character {
+
+    max-width: 260px;
+
+    margin: 0 auto;
+
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .aesthetic-grid {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+
+  .aesthetic-theme-title {
+
+    font-size: 24px;
+
+  }
+
+}
+
+</style>
+
+
+
+<div class="lily-aesthetic">
+
+
+  <!-- =================================================
+       ШАПКА ЭСТЕТИКИ
+       ================================================= -->
+
+  <div
+    class="aesthetic-theme-header"
+    style="
+      background-image:
+        linear-gradient(
+          90deg,
+          rgba(39,50,37,.90),
+          rgba(73,87,65,.62),
+          rgba(39,50,37,.90)
+        ),
+        url('${themeImg}');
+    "
+  >
+
+    <div class="aesthetic-theme-header-content">
+
+      <span class="aesthetic-theme-label">
+        LILY DALE AESTHETIC ARCHIVE
+      </span>
+
+      <h2 class="aesthetic-theme-title">
+        ${themeTitle}
+      </h2>
+
+      <p class="aesthetic-theme-subtitle">
+        ${themeSubtitle}
+      </p>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =================================================
+       ПЕРСОНАЖ + КАРТОЧКИ
+       ================================================= -->
+
+  <div class="aesthetic-main">
+
+
+    <aside class="aesthetic-character">
+
+      <img
+        src="${charImg}"
+        alt="${charName}"
+        class="aesthetic-character-image"
+      >
+
+      <div class="aesthetic-character-name">
+        ${charName}
+      </div>
+
+    </aside>
+
+
+
+    <div class="aesthetic-grid">
+
+      ${cards}
+
+    </div>
+
+
+  </div>
+
+
+
+  <div class="aesthetic-footer">
+    LILY DALE • PERSONAL AESTHETIC ARCHIVE
+  </div>
+
+
+</div>
+
+`;
+
+
+  /* ========================================================
+     ВЫВОД КОДА
+     ======================================================== */
+
+  const output =
+    document.getElementById(
+      "aestheticCode"
+    );
+
+  output.value =
+    code.trim();
+
+
+  const preview =
+    document.getElementById(
+      "aestheticPreview"
+    );
+
+  preview.innerHTML =
+    code.trim();
+
+  setupAestheticPreviewResize();
+
+
+  const result =
+    document.getElementById(
+      "aestheticResult"
+    );
+
+  result.style.display =
+    "block";
+
+  setupAestheticPreviewResize();
+
+
+  result.scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+
+}
+
+
+
+/* ==========================================================
+   HTML-КОД: ПОКАЗАТЬ / СКРЫТЬ
+   ========================================================== */
+
+function toggleAestheticCode() {
+
+  var box =
+    document.getElementById(
+      "aestheticCodeBox"
+    );
+
+  var button =
+    document.querySelector(
+      ".aesthetic-code-button"
+    );
+
+  if (
+    box.style.display === "none" ||
+    !box.style.display
+  ) {
+
+    box.style.display =
+      "block";
+
+    button.innerHTML =
+      "⌃ Скрыть HTML-код";
+
+  } else {
+
+    box.style.display =
+      "none";
+
+    button.innerHTML =
+      "⧉ Получить HTML-код";
+
+  }
+
+}
+
+
+/* ==========================================================
+   КОПИРОВАНИЕ HTML-КОДА
+   ========================================================== */
+
+function copyAestheticCode() {
+
+  var output =
+    document.getElementById(
+      "aestheticCode"
+    );
+
+  if (!output.value.trim()) {
+
+    alert(
+      "Сначала создайте предпросмотр эстетики."
+    );
+
+    return;
+  }
+
+  if (
+    navigator.clipboard &&
+    navigator.clipboard.writeText
+  ) {
+
+    navigator.clipboard
+      .writeText(output.value)
+      .then(function() {
+
+        aestheticShowCopied();
+
+      })
+      .catch(function() {
+
+        aestheticFallbackCopy(output);
+
+      });
+
+  } else {
+
+    aestheticFallbackCopy(output);
+
+  }
+
+}
+
+
+function aestheticFallbackCopy(
+  output
+) {
+
+  output.focus();
+
+  output.select();
+
+  document.execCommand(
+    "copy"
+  );
+
+  aestheticShowCopied();
+
+}
+
+
+function aestheticShowCopied() {
+
+  var message =
+    document.getElementById(
+      "aestheticCopied"
+    );
+
+  message.style.display =
+    "block";
+
+  setTimeout(function() {
+
+    message.style.display =
+      "none";
+
+  }, 2200);
+
+}
+
+
+/* ==========================================================
+   СКАЧИВАНИЕ ГОТОВОЙ ЭСТЕТИКИ КАК PNG
+   ========================================================== */
+
+function aestheticMakeFileName() {
+
+  var title =
+    aestheticGet("themeTitle") ||
+    "Lily_Dale_Aesthetic";
+
+  var name =
+    aestheticGet("charName");
+
+  var value =
+    title +
+    (name ? "_" + name : "");
+
+  value =
+    value
+      .replace(/[^a-zA-Zа-яА-ЯёЁ0-9_-]+/g, "_")
+      .replace(/_+/g, "_")
+      .replace(/^_|_$/g, "")
+      .substring(0, 120);
+
+  return (value || "Lily_Dale_Aesthetic") + ".png";
+}
+
+
+/* ==========================================================
+   ПОДГОТОВКА ВНЕШНИХ ИЗОБРАЖЕНИЙ
+   ========================================================== */
+
+function prepareAestheticImages(root) {
+
+  var images =
+    Array.from(
+      root.querySelectorAll("img")
+    );
+
+  return Promise.all(
+    images.map(function(img) {
+
+      /*
+       * crossorigin нужно задавать до загрузки изображения.
+       * Если картинка уже загружена, менять атрибут здесь
+       * бессмысленно и может привести к лишнему ожиданию.
+       */
+      if (!img.complete) {
+
+        img.setAttribute(
+          "crossorigin",
+          "anonymous"
+        );
+
+      }
+
+      return waitForImage(img);
+
+    })
+  );
+
+}
+
+
+/* ==========================================================
+   PNG-ЭКСПОРТ
+   ========================================================== */
+
+
+function waitForImage(img) {
+
+  return new Promise(function(resolve) {
+
+    /*
+     * ВАЖНО:
+     * complete === true означает, что браузер уже закончил
+     * загрузку изображения — даже если оно не загрузилось.
+     * Нельзя в таком случае ждать load/error повторно:
+     * событие уже произошло, и PNG-генератор зависнет навсегда.
+     */
+    if (img.complete) {
+      resolve();
+      return;
+    }
+
+    var finished = false;
+
+    function done() {
+
+      if (finished) {
+        return;
+      }
+
+      finished = true;
+
+      img.removeEventListener(
+        "load",
+        done
+      );
+
+      img.removeEventListener(
+        "error",
+        done
+      );
+
+      resolve();
+
+    }
+
+    img.addEventListener(
+      "load",
+      done,
+      { once: true }
+    );
+
+    img.addEventListener(
+      "error",
+      done,
+      { once: true }
+    );
+
+  });
+
+}
+
+
+/*
+ * PNG-рендер использует исходные <img>.
+ * В самих карточках уже задано object-fit: cover,
+ * поэтому изображение не растягивается, а обрезается.
+ *
+ * Важно: мы НЕ рисуем внешние изображения в промежуточный canvas.
+ * Иначе браузер блокирует toDataURL() при отсутствии CORS.
+ */
+
+function preparePngImages(root) {
+
+  var images =
+    Array.from(
+      root.querySelectorAll("img")
+    );
+
+  images.forEach(function(img) {
+
+    img.dataset.pngOriginalStyle =
+      img.getAttribute("style") || "";
+
+    img.style.objectFit =
+      "cover";
+
+    img.style.objectPosition =
+      "center center";
+
+  });
+
+  return Promise.all(
+    images.map(function(img) {
+      return waitForImage(img);
+    })
+  );
+
+}
+
+
+function restorePngImages(root) {
+
+  var images =
+    Array.from(
+      root.querySelectorAll("img")
+    );
+
+  images.forEach(function(img) {
+
+    var original =
+      img.dataset.pngOriginalStyle;
+
+    if (original) {
+
+      img.setAttribute(
+        "style",
+        original
+      );
+
+    } else {
+
+      img.removeAttribute(
+        "style"
+      );
+
+    }
+
+    delete img.dataset.pngOriginalStyle;
+
+  });
+
+}
+
+
+
+function fitAestheticPreview() {
+
+  var preview =
+    document.getElementById(
+      "aestheticPreview"
+    );
+
+  if (!preview) {
+    return;
+  }
+
+  var aesthetic =
+    preview.querySelector(
+      ".lily-aesthetic"
+    );
+
+  if (!aesthetic) {
+    return;
+  }
+
+  var availableWidth =
+    preview.clientWidth;
+
+  if (!availableWidth) {
+    return;
+  }
+
+  var scale =
+    Math.min(
+      1,
+      availableWidth / 800
+    );
+
+  aesthetic.style.transform =
+    "scale(" + scale + ")";
+
+  /*
+   * Увеличиваем высоту контейнера,
+   * потому что transform визуально уменьшает
+   * элемент, но не меняет его layout-height.
+   */
+  preview.style.height =
+    (aesthetic.scrollHeight * scale) + "px";
+
+}
+
+
+function setupAestheticPreviewResize() {
+
+  var preview =
+    document.getElementById(
+      "aestheticPreview"
+    );
+
+  if (!preview) {
+    return;
+  }
+
+  if (
+    window.ResizeObserver &&
+    !preview._aestheticResizeObserver
+  ) {
+
+    preview._aestheticResizeObserver =
+      new ResizeObserver(function() {
+
+        fitAestheticPreview();
+
+      });
+
+    preview._aestheticResizeObserver.observe(
+      preview
+    );
+
+  }
+
+  window.requestAnimationFrame(
+    fitAestheticPreview
+  );
+
+}
+
+
+async function generateAestheticPNG() {
+
+  var preview =
+    document.getElementById(
+      "aestheticPreview"
+    );
+
+  var target =
+    preview.querySelector(
+      ".lily-aesthetic"
+    );
+
+  if (!target) {
+
+    alert(
+      "Сначала создайте предпросмотр эстетики."
+    );
+
+    return;
+  }
+
+  var button =
+    document.getElementById(
+      "aestheticGeneratePng"
+    );
+
+  var oldText =
+    button.innerHTML;
+
+  var imagesPrepared =
+    false;
+
+  button.disabled =
+    true;
+
+  button.innerHTML =
+    "⌛ Генерируем PNG…";
+
+  try {
+
+    await prepareAestheticImages(
+      target
+    );
+
+    await preparePngImages(
+      target
+    );
+
+    imagesPrepared =
+      true;
+
+    var html2canvas =
+      await loadAestheticCanvasLibrary();
+
+    /*
+     * PNG always uses the full-size aesthetic.
+     * The generator itself may be narrow, but the artwork remains 800px wide.
+     */
+    var oldTransform =
+      target.style.transform;
+
+    target.style.transform =
+      "none";
+
+    var canvas =
+      await html2canvas(
+        target,
+        {
+          width: 800,
+          windowWidth: 800,
+
+          backgroundColor: null,
+          scale: 2,
+          useCORS: true,
+          allowTaint: false,
+          logging: false,
+          imageTimeout: 20000,
+          removeContainer: true
+        }
+      );
+
+    restorePngImages(
+      target
+    );
+
+    target.style.transform =
+      oldTransform;
+
+    imagesPrepared =
+      false;
+
+    var png =
+      canvas.toDataURL(
+        "image/png"
+      );
+
+    var result =
+      document.getElementById(
+        "aestheticPngResult"
+      );
+
+    var image =
+      document.getElementById(
+        "aestheticPngImage"
+      );
+
+    image.src =
+      png;
+
+    image.alt =
+      "Сгенерированная эстетика";
+
+    result.style.display =
+      "block";
+
+    var status =
+      document.getElementById(
+        "aestheticPngStatus"
+      );
+
+    status.style.display =
+      "block";
+
+    setTimeout(function() {
+
+      status.style.display =
+        "none";
+
+    }, 2500);
+
+  } catch (error) {
+
+    if (imagesPrepared) {
+
+      restorePngImages(
+        target
+      );
+
+      imagesPrepared =
+        false;
+
+    }
+
+    if (typeof oldTransform !== "undefined") {
+      target.style.transform =
+        oldTransform;
+    }
+
+    console.error(
+      "PNG generation error:",
+      error
+    );
+
+    alert(
+      "Не удалось сгенерировать PNG. " +
+      "Проверьте ссылки на изображения " +
+      "и разрешение CORS."
+    );
+
+  } finally {
+
+    button.disabled =
+      false;
+
+    button.innerHTML =
+      oldText;
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>
+
+<style>
+@media (max-width: 430px) {
+  .aesthetic-result-actions {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
