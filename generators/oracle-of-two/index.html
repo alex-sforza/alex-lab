@@ -577,11 +577,27 @@ window.generateHTMLFile = function(){
 ${styles}
 html,body{margin:0;min-height:100%;background:#07080a}
 body{padding:24px;box-sizing:border-box}
-.result{display:block!important;max-width:1100px;margin:0 auto}
+/* FORUM EMBED: keep the generated result in a stable two-column layout. */
+#oracleOfTwoEmbed{width:100%!important;max-width:1100px!important;margin:0 auto!important;box-sizing:border-box!important;overflow:visible!important}
+#oracleOfTwoEmbed .result{display:block!important;width:100%!important;max-width:none!important;margin:0!important;box-sizing:border-box!important}
+#oracleOfTwoEmbed .hero{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:14px!important;width:100%!important;align-items:stretch!important}
+#oracleOfTwoEmbed .heroCard{width:auto!important;min-width:0!important;max-width:none!important;box-sizing:border-box!important;overflow:hidden!important}
+#oracleOfTwoEmbed .heroCard img{display:block!important;width:100%!important;height:auto!important;aspect-ratio:5/4!important;object-fit:cover!important}
+#oracleOfTwoEmbed .grid{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:14px!important;width:100%!important;align-items:stretch!important}
+#oracleOfTwoEmbed .box{width:auto!important;min-width:0!important;max-width:none!important;box-sizing:border-box!important;overflow:visible!important}
+#oracleOfTwoEmbed .infoCards{display:grid!important;grid-template-columns:1fr!important;gap:10px!important;width:100%!important}
+#oracleOfTwoEmbed .infoCard{width:100%!important;min-width:0!important;box-sizing:border-box!important}
+#oracleOfTwoEmbed .oracleUnder{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:14px!important;width:100%!important}
+#oracleOfTwoEmbed .oracleUnder>div{min-width:0!important}
+#oracleOfTwoEmbed .metrics{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:9px!important;width:100%!important}
+#oracleOfTwoEmbed .cardOracle{width:100%!important;box-sizing:border-box!important}
+#oracleOfTwoEmbed .prophecy{width:100%!important;box-sizing:border-box!important}
+/* The forum may have a narrow viewport; do not collapse the pair into one column. */
+@media(max-width:760px){#oracleOfTwoEmbed .hero,#oracleOfTwoEmbed .grid,#oracleOfTwoEmbed .oracleUnder,#oracleOfTwoEmbed .metrics{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important}}
 </style>
 </head>
 <body>
-${resultCopy.outerHTML}
+<div id="oracleOfTwoEmbed">${resultCopy.outerHTML}</div>
 </body>
 </html>`;
 
