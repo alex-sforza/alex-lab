@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oracle of Two — Lily Dale</title>
+<style>
+html,body{margin:0;width:100%;height:100%;background:#08090b;overflow:hidden}
+#loading{position:fixed;inset:0;display:grid;place-items:center;color:#dfe3e8;background:#08090b;font:16px Georgia,serif;letter-spacing:.5px}
+#error{display:none;position:fixed;inset:0;padding:40px;color:#dfe3e8;background:#08090b;font:16px Arial,sans-serif;line-height:1.6}
+iframe{display:block;width:100%;height:100%;border:0}
+</style>
+</head>
+<body>
+<div id="loading">✦ Оракул открывает Завесу…</div>
+<div id="error"></div>
+<script>
+(async function(){
+  const source="https://raw.githubusercontent.com/alex-sforza/oracle-of-two/main/index.html";
+  try{
+    const response=await fetch(source,{cache:"no-cache"});
+    if(!response.ok) throw new Error("HTTP "+response.status);
+    const html=await response.text();
+    document.open();
+    document.write(html);
+    document.close();
+  }catch(error){
+    document.getElementById("loading").style.display="none";
+    const box=document.getElementById("error");
+    box.style.display="block";
+    box.innerHTML="<h2>Не удалось открыть Oracle of Two</h2><p>Попробуйте обновить страницу. Если ошибка повторяется, проверьте доступ к GitHub.</p><small>"+String(error).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]))+"</small>";
+  }
+})();
+</script>
+</body>
+</html>
