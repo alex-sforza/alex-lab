@@ -1,0 +1,39 @@
+name: Sync Musical Aesthetic Generator
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout alex-lab
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Copy generator from source repository
+        run: |
+          set -e
+          mkdir -p generators/musical-aesthetic
+          base="https://raw.githubusercontent.com/alex-sforza/pairing-music-generator/main"
+          for file in index.html music-archetypes.js ui-fix-core.js ui-fix.js html-export.js README.md; do
+            curl -fsSL "$base/$file" -o "generators/musical-aesthetic/$file"
+          done
+
+      - name: Commit synced generator
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add generators/musical-aesthetic
+          if git diff --cached --quiet; then
+            echo "No changes to sync."
+            exit 0
+          fi
+          git commit -m "feat: add musical aesthetic generator"
+          git push
