@@ -26,6 +26,7 @@ jobs:
           declare -A PROJECTS=(
             ["generators/cocktail-pairing"]="cocktail-pairing-generator"
             ["generators/pairing-aesthetic"]="pairing-aesthetic-generator"
+            ["generators/musical-aesthetic"]="pairing-music-generator"
             ["generators/lily-dale-aesthetic"]="lily-dale-aesthetic-generator"
             ["generators/lily-dale-astrological-herald"]="lily-dale-astrological-herald"
             ["games/cuelebre-snake"]="cuelebre-snake"
