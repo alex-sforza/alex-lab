@@ -420,8 +420,8 @@
     </div>
 
     <p class="aesthetic-result-info">
-      Здесь можно посмотреть результат и получить HTML-код
-      для публикации на форуме.
+      Здесь можно посмотреть результат, скачать его как PNG
+      или получить HTML-код для публикации на форуме.
     </p>
 
     <div class="aesthetic-preview-shell">
@@ -430,7 +430,16 @@
 
     <div class="aesthetic-result-actions">
 
-<button
+      <button
+        type="button"
+        class="aesthetic-download"
+        id="aestheticGeneratePng"
+        onclick="generateAestheticPNG()"
+      >
+        ✦ Сгенерировать эстетику как PNG
+      </button>
+
+      <button
         type="button"
         class="aesthetic-code-button"
         onclick="toggleAestheticCode()"
@@ -470,6 +479,34 @@
         Код скопирован
       </div>
 
+    </div>
+
+    <div
+      id="aestheticPngStatus"
+      class="aesthetic-copied"
+    >
+      PNG-версия готова
+    </div>
+
+    <div
+      id="aestheticPngResult"
+      class="aesthetic-png-result"
+      style="display:none;"
+    >
+      <div class="aesthetic-png-result-title">
+        PNG-ВЕРСИЯ
+      </div>
+
+      <img
+        id="aestheticPngImage"
+        class="aesthetic-png-image"
+        alt="Сгенерированная эстетика"
+      >
+
+      <p class="aesthetic-png-hint">
+        Изображение уже сгенерировано.
+        Сохраните его обычным способом через браузер.
+      </p>
     </div>
 
   </div>
@@ -711,7 +748,8 @@
 
   display: grid;
 
-  grid-template-columns:\n    1fr;
+  grid-template-columns:
+    1fr 1fr;
 
   gap: 15px;
 }
@@ -963,14 +1001,15 @@
 
 
 /* ==========================================================
-   РЕЗУЛЬТАТ: HTML
+   РЕЗУЛЬТАТ: PNG + HTML
    ========================================================== */
 
 .aesthetic-result-actions {
 
   display: grid;
 
-  grid-template-columns:\n    1fr;
+  grid-template-columns:
+    1fr 1fr;
 
   gap: 10px;
 
@@ -1187,6 +1226,47 @@
 }
 
 
+.aesthetic-png-result {
+
+  width: 100%;
+
+  margin-top: 18px;
+
+  padding: 16px;
+
+  box-sizing: border-box;
+
+  background: #e6e3cf;
+
+  border: 1px solid rgba(214,207,178,.72);
+
+  text-align: center;
+
+}
+
+
+.aesthetic-png-image {
+
+  display: block;
+
+  width: 800px;
+
+  max-width: 100%;
+
+  height: auto;
+
+  margin: 0 auto;
+
+  border: 1px solid rgba(72,82,62,.26);
+
+}
+
+
+
+/* ==========================================================
+   АДАПТИВ
+   ========================================================== */
+
 @media (max-width: 700px) {
 
   .aesthetic-generator {
@@ -1228,6 +1308,69 @@
 
 
 <script>
+
+/* ==========================================================
+   HTML2CANVAS — экспорт готовой эстетики в PNG
+   ========================================================== */
+
+function loadAestheticCanvasLibrary() {
+
+  if (window.html2canvas) {
+    return Promise.resolve(window.html2canvas);
+  }
+
+  return new Promise(function(resolve, reject) {
+
+    var existing =
+      document.querySelector(
+        'script[data-aesthetic-html2canvas]'
+      );
+
+    if (existing) {
+
+      existing.addEventListener(
+        "load",
+        function() {
+          resolve(window.html2canvas);
+        }
+      );
+
+      existing.addEventListener(
+        "error",
+        reject
+      );
+
+      return;
+    }
+
+    var script =
+      document.createElement("script");
+
+    script.src =
+      "https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js";
+
+    script.async = true;
+
+    script.dataset.aestheticHtml2canvas = "1";
+
+    script.onload = function() {
+      resolve(window.html2canvas);
+    };
+
+    script.onerror = function() {
+      reject(
+        new Error(
+          "Не удалось загрузить библиотеку html2canvas."
+        )
+      );
+    };
+
+    document.head.appendChild(script);
+
+  });
+
+}
+
 
 /* ==========================================================
    ПОЛУЧЕНИЕ ДАННЫХ
@@ -1380,7 +1523,7 @@ function generateAestheticCode() {
 
 .lily-aesthetic {
 
-  width: 800px;\n\n  min-width: 800px;\n\n  max-width: 800px;
+  width: min(800px, 94%);
 
   margin: 25px auto;
 
@@ -1762,7 +1905,49 @@ function generateAestheticCode() {
 
 
 
-/* =====================================================\n   ФИКСИРОВАННЫЙ МАКЕТ — БЕЗ МОБИЛЬНОЙ ПЕРЕСТРОЙКИ\n   ===================================================== */\n\n.lily-aesthetic {\n  overflow: hidden;\n}\n
+/* =====================================================
+   АДАПТИВ
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+  .aesthetic-main {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+
+  .aesthetic-character {
+
+    max-width: 260px;
+
+    margin: 0 auto;
+
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .aesthetic-grid {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+
+  .aesthetic-theme-title {
+
+    font-size: 24px;
+
+  }
+
+}
+
 </style>
 
 
@@ -2020,8 +2205,468 @@ function aestheticShowCopied() {
 }
 
 
+/* ==========================================================
+   СКАЧИВАНИЕ ГОТОВОЙ ЭСТЕТИКИ КАК PNG
+   ========================================================== */
+
+function aestheticMakeFileName() {
+
+  var title =
+    aestheticGet("themeTitle") ||
+    "Lily_Dale_Aesthetic";
+
+  var name =
+    aestheticGet("charName");
+
+  var value =
+    title +
+    (name ? "_" + name : "");
+
+  value =
+    value
+      .replace(/[^a-zA-Zа-яА-ЯёЁ0-9_-]+/g, "_")
+      .replace(/_+/g, "_")
+      .replace(/^_|_$/g, "")
+      .substring(0, 120);
+
+  return (value || "Lily_Dale_Aesthetic") + ".png";
+}
+
+
+/* ==========================================================
+   ПОДГОТОВКА ВНЕШНИХ ИЗОБРАЖЕНИЙ
+   ========================================================== */
+
+function prepareAestheticImages(root) {
+
+  var images =
+    Array.from(
+      root.querySelectorAll("img")
+    );
+
+  return Promise.all(
+    images.map(function(img) {
+
+      /*
+       * crossorigin нужно задавать до загрузки изображения.
+       * Если картинка уже загружена, менять атрибут здесь
+       * бессмысленно и может привести к лишнему ожиданию.
+       */
+      if (!img.complete) {
+
+        img.setAttribute(
+          "crossorigin",
+          "anonymous"
+        );
+
+      }
+
+      return waitForImage(img);
+
+    })
+  );
+
+}
+
+
+/* ==========================================================
+   PNG-ЭКСПОРТ
+   ========================================================== */
+
+
+function waitForImage(img) {
+
+  return new Promise(function(resolve) {
+
+    /*
+     * ВАЖНО:
+     * complete === true означает, что браузер уже закончил
+     * загрузку изображения — даже если оно не загрузилось.
+     * Нельзя в таком случае ждать load/error повторно:
+     * событие уже произошло, и PNG-генератор зависнет навсегда.
+     */
+    if (img.complete) {
+      resolve();
+      return;
+    }
+
+    var finished = false;
+
+    function done() {
+
+      if (finished) {
+        return;
+      }
+
+      finished = true;
+
+      img.removeEventListener(
+        "load",
+        done
+      );
+
+      img.removeEventListener(
+        "error",
+        done
+      );
+
+      resolve();
+
+    }
+
+    img.addEventListener(
+      "load",
+      done,
+      { once: true }
+    );
+
+    img.addEventListener(
+      "error",
+      done,
+      { once: true }
+    );
+
+  });
+
+}
+
+
+/*
+ * PNG-рендер использует исходные <img>.
+ * В самих карточках уже задано object-fit: cover,
+ * поэтому изображение не растягивается, а обрезается.
+ *
+ * Важно: мы НЕ рисуем внешние изображения в промежуточный canvas.
+ * Иначе браузер блокирует toDataURL() при отсутствии CORS.
+ */
+
+function preparePngImages(root) {
+
+  var images =
+    Array.from(
+      root.querySelectorAll("img")
+    );
+
+  images.forEach(function(img) {
+
+    img.dataset.pngOriginalStyle =
+      img.getAttribute("style") || "";
+
+    img.style.objectFit =
+      "cover";
+
+    img.style.objectPosition =
+      "center center";
+
+  });
+
+  return Promise.all(
+    images.map(function(img) {
+      return waitForImage(img);
+    })
+  );
+
+}
+
+
+function restorePngImages(root) {
+
+  var images =
+    Array.from(
+      root.querySelectorAll("img")
+    );
+
+  images.forEach(function(img) {
+
+    var original =
+      img.dataset.pngOriginalStyle;
+
+    if (original) {
+
+      img.setAttribute(
+        "style",
+        original
+      );
+
+    } else {
+
+      img.removeAttribute(
+        "style"
+      );
+
+    }
+
+    delete img.dataset.pngOriginalStyle;
+
+  });
+
+}
+
+
+
+function fitAestheticPreview() {
+
+  var preview =
+    document.getElementById(
+      "aestheticPreview"
+    );
+
+  if (!preview) {
+    return;
+  }
+
+  var aesthetic =
+    preview.querySelector(
+      ".lily-aesthetic"
+    );
+
+  if (!aesthetic) {
+    return;
+  }
+
+  var availableWidth =
+    preview.clientWidth;
+
+  if (!availableWidth) {
+    return;
+  }
+
+  var scale =
+    Math.min(
+      1,
+      availableWidth / 800
+    );
+
+  aesthetic.style.transform =
+    "scale(" + scale + ")";
+
+  /*
+   * Увеличиваем высоту контейнера,
+   * потому что transform визуально уменьшает
+   * элемент, но не меняет его layout-height.
+   */
+  preview.style.height =
+    (aesthetic.scrollHeight * scale) + "px";
+
+}
+
+
+function setupAestheticPreviewResize() {
+
+  var preview =
+    document.getElementById(
+      "aestheticPreview"
+    );
+
+  if (!preview) {
+    return;
+  }
+
+  if (
+    window.ResizeObserver &&
+    !preview._aestheticResizeObserver
+  ) {
+
+    preview._aestheticResizeObserver =
+      new ResizeObserver(function() {
+
+        fitAestheticPreview();
+
+      });
+
+    preview._aestheticResizeObserver.observe(
+      preview
+    );
+
+  }
+
+  window.requestAnimationFrame(
+    fitAestheticPreview
+  );
+
+}
+
+
+async function generateAestheticPNG() {
+
+  var preview =
+    document.getElementById(
+      "aestheticPreview"
+    );
+
+  var target =
+    preview.querySelector(
+      ".lily-aesthetic"
+    );
+
+  if (!target) {
+
+    alert(
+      "Сначала создайте предпросмотр эстетики."
+    );
+
+    return;
+  }
+
+  var button =
+    document.getElementById(
+      "aestheticGeneratePng"
+    );
+
+  var oldText =
+    button.innerHTML;
+
+  var imagesPrepared =
+    false;
+
+  button.disabled =
+    true;
+
+  button.innerHTML =
+    "⌛ Генерируем PNG…";
+
+  try {
+
+    await prepareAestheticImages(
+      target
+    );
+
+    await preparePngImages(
+      target
+    );
+
+    imagesPrepared =
+      true;
+
+    var html2canvas =
+      await loadAestheticCanvasLibrary();
+
+    /*
+     * PNG always uses the full-size aesthetic.
+     * The generator itself may be narrow, but the artwork remains 800px wide.
+     */
+    var oldTransform =
+      target.style.transform;
+
+    target.style.transform =
+      "none";
+
+    var canvas =
+      await html2canvas(
+        target,
+        {
+          width: 800,
+          windowWidth: 800,
+
+          backgroundColor: null,
+          scale: 2,
+          useCORS: true,
+          allowTaint: false,
+          logging: false,
+          imageTimeout: 20000,
+          removeContainer: true
+        }
+      );
+
+    restorePngImages(
+      target
+    );
+
+    target.style.transform =
+      oldTransform;
+
+    imagesPrepared =
+      false;
+
+    var png =
+      canvas.toDataURL(
+        "image/png"
+      );
+
+    var result =
+      document.getElementById(
+        "aestheticPngResult"
+      );
+
+    var image =
+      document.getElementById(
+        "aestheticPngImage"
+      );
+
+    image.src =
+      png;
+
+    image.alt =
+      "Сгенерированная эстетика";
+
+    result.style.display =
+      "block";
+
+    var status =
+      document.getElementById(
+        "aestheticPngStatus"
+      );
+
+    status.style.display =
+      "block";
+
+    setTimeout(function() {
+
+      status.style.display =
+        "none";
+
+    }, 2500);
+
+  } catch (error) {
+
+    if (imagesPrepared) {
+
+      restorePngImages(
+        target
+      );
+
+      imagesPrepared =
+        false;
+
+    }
+
+    if (typeof oldTransform !== "undefined") {
+      target.style.transform =
+        oldTransform;
+    }
+
+    console.error(
+      "PNG generation error:",
+      error
+    );
+
+    alert(
+      "Не удалось сгенерировать PNG. " +
+      "Проверьте ссылки на изображения " +
+      "и разрешение CORS."
+    );
+
+  } finally {
+
+    button.disabled =
+      false;
+
+    button.innerHTML =
+      oldText;
+
+  }
+
+}
 
 </script>
 
 </body>
 </html>
+
+<style>
+@media (max-width: 430px) {
+  .aesthetic-result-actions {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
