@@ -1380,7 +1380,7 @@ function generateAestheticCode() {
 
 .lily-aesthetic {
 
-  width: min(800px, 94%);
+  width: 800px;\n\n  min-width: 800px;\n\n  max-width: 800px;
 
   margin: 25px auto;
 
@@ -1762,49 +1762,7 @@ function generateAestheticCode() {
 
 
 
-/* =====================================================
-   АДАПТИВ
-   ===================================================== */
-
-@media (max-width: 700px) {
-
-  .aesthetic-main {
-
-    grid-template-columns:
-      1fr;
-
-  }
-
-
-  .aesthetic-character {
-
-    max-width: 260px;
-
-    margin: 0 auto;
-
-  }
-
-}
-
-
-@media (max-width: 480px) {
-
-  .aesthetic-grid {
-
-    grid-template-columns:
-      1fr;
-
-  }
-
-
-  .aesthetic-theme-title {
-
-    font-size: 24px;
-
-  }
-
-}
-
+/* =====================================================\n   ФИКСИРОВАННЫЙ МАКЕТ — БЕЗ МОБИЛЬНОЙ ПЕРЕСТРОЙКИ\n   ===================================================== */\n\n.lily-aesthetic {\n  overflow: hidden;\n}\n
 </style>
 
 
