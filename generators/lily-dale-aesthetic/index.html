@@ -1523,7 +1523,7 @@ function generateAestheticCode() {
 
 .lily-aesthetic {
 
-  width: min(800px, 94%);
+  width: 800px;\n\n  min-width: 800px;\n\n  max-width: 800px;
 
   margin: 25px auto;
 
@@ -1906,46 +1906,29 @@ function generateAestheticCode() {
 
 
 /* =====================================================
-   АДАПТИВ
+   ФИКСИРОВАННЫЙ МАКЕТ
    ===================================================== */
 
-@media (max-width: 700px) {
-
-  .aesthetic-main {
-
-    grid-template-columns:
-      1fr;
-
-  }
-
-
-  .aesthetic-character {
-
-    max-width: 260px;
-
-    margin: 0 auto;
-
-  }
-
+/*
+ * Публикация намеренно не адаптивная: на телефоне сохраняется
+ * исходная композиция 800px, поэтому карточки и изображения
+ * не перестраиваются и не меняют положение.
+ */
+.lily-aesthetic {
+  overflow: hidden;
 }
 
+.aesthetic-main,
+.aesthetic-grid,
+.aesthetic-character,
+.aesthetic-item,
+.aesthetic-item-image-wrap {
+  min-width: 0;
+}
 
-@media (max-width: 480px) {
-
-  .aesthetic-grid {
-
-    grid-template-columns:
-      1fr;
-
-  }
-
-
-  .aesthetic-theme-title {
-
-    font-size: 24px;
-
-  }
-
+.aesthetic-character-image,
+.aesthetic-item-image {
+  object-position: center center;
 }
 
 </style>
