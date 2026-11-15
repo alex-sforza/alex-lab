@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lily-Dale — горячая парная эстетика</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#170e16;color:#fae8e7;font-family:Georgia,'Times New Roman',serif}.app{max-width:850px;margin:auto;padding:28px 18px 60px}.top{text-align:center;padding:20px 0 28px}.eyebrow{font:12px Arial,sans-serif;letter-spacing:3px;color:#dda57f}.top h1{font-size:clamp(32px,6vw,53px);font-weight:normal;margin:9px 0;color:#f5dbd1}.top h1 em{color:#e3a376}.intro{color:#c8aeb5;font-style:italic;line-height:1.5}.form-panel{background:#2a1927;border:1px solid #654353;padding:22px;margin:16px 0}.form-panel h2{font-size:23px;font-weight:normal;margin:0 0 6px}.hint{color:#c7abb5;font:13px/1.5 Arial,sans-serif;margin:6px 0 16px}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.fields label{color:#e3bec4;font:12px Arial,sans-serif}.fields input{display:block;width:100%;min-width:0;margin-top:6px;border:1px solid #7e5664;background:#160e16;padding:12px 10px;color:white;font:14px Arial,sans-serif}.section-head{text-align:center;color:#e6b183;font:12px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;margin:34px 0 16px}.question{padding:17px;margin-bottom:13px;background:#2b1b2b;border:1px solid #634252}.question h3{font-weight:normal;font-size:19px;margin:0 0 13px}.question small{color:#c8a9b3;font:12px Arial,sans-serif}.options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.option{min-height:57px;background:#432536;border:1px solid #785060;color:#ffe9e4;padding:11px 13px;text-align:left;font:14px/1.35 Arial,sans-serif;cursor:pointer;border-radius:3px}.option:hover{background:#593049}.option.selected{border-color:#f1b788;background:#814054;box-shadow:inset 0 0 0 1px #f1b788}.actions{display:flex;gap:10px;flex-wrap:wrap;margin:19px 0}.btn{flex:1;min-width:150px;border:1px solid #e8b48a;background:#deb089;color:#321725;padding:14px 16px;cursor:pointer;font:bold 12px Arial,sans-serif;text-transform:uppercase;letter-spacing:1px}.btn.alt{background:transparent;color:#f4d4bd}.btn:hover{filter:brightness(1.14)}.error{color:#ffbca5;font:14px Arial,sans-serif}.preview-shell{margin-top:25px;overflow-x:auto;border:1px dashed #815468;padding:12px;background:#110b13}.preview-shell[hidden],.output[hidden]{display:none}.preview-caption{color:#ddb494;font:12px Arial,sans-serif;margin-bottom:12px}.output{margin-top:18px}.output textarea{display:block;width:100%;min-height:170px;background:#100c13;color:#e6c8ce;border:1px solid #785061;padding:12px;font:12px/1.45 monospace;resize:vertical}.caption{text-align:center;font:11px Arial,sans-serif;color:#9d7d87;margin-top:25px;letter-spacing:2px}@media(max-width:560px){.fields,.options{grid-template-columns:1fr}.form-panel{padding:15px}.app{padding:15px 10px 40px}.question{padding:14px}}
+</style></head><body>
+<main class="app" id="app">
+ <header class="top"><div class="eyebrow">LILY-DALE · BEYOND THE VEIL</div><h1>HOT <em>PAIRING</em> AESTHETIC</h1><p class="intro">Двенадцать вопросов, три шкалы и одна совершенно неприличная химическая реакция.</p></header>
+ <section class="form-panel"><h2>01. Собери свою эстетику</h2><p class="hint">Вставь прямые ссылки на изображения. Портреты располагаются первыми, затем шесть кадров эстетики. Имена — только для подписи на изображениях; в самом описании не будет шаблонных «Персонаж 1» и «Персонаж 2».</p>
+ <div class="fields">
+  <label>Имя первого персонажа<input id="nameA" placeholder="Имя / прозвище"></label><label>Имя второго персонажа<input id="nameB" placeholder="Имя / прозвище"></label>
+  <label>Портрет первого<input id="image0" placeholder="https://..."></label><label>Портрет второго<input id="image1" placeholder="https://..."></label>
+  <label>01 · Напиток<input id="image2" placeholder="https://..."></label><label>02 · Атмосфера<input id="image3" placeholder="https://..."></label>
+  <label>03 · Аромат<input id="image4" placeholder="https://..."></label><label>04 · Музыка<input id="image5" placeholder="https://..."></label>
+  <label>05 · Прикосновение<input id="image6" placeholder="https://..."></label><label>06 · Искушение<input id="image7" placeholder="https://..."></label>
+ </div></section>
+ <div class="section-head">02. Показания свидетелей</div><div id="questions"></div>
+ <p class="error" id="error" role="alert"></p>
+ <div class="actions"><button class="btn" id="generate">🌶️ Создать горячую эстетику</button><button class="btn alt" id="clear">Сбросить выборы</button></div>
+ <section class="preview-shell" id="previewShell" hidden><div class="preview-caption">Предпросмотр итогового блока · фиксированная ширина 700 px (на узких экранах прокручивается)</div><div id="preview"></div></section>
+ <section class="output" id="output" hidden><div class="actions"><button class="btn" id="copy">Скопировать готовый HTML</button><button class="btn alt" id="reroll">Другое название</button></div><p class="hint">Скопированный HTML уже содержит всю эстетику: 8 фотографий, название, три шкалы и описание. Встроенные стили сохраняют ширину карточек и пропорции независимо от оформления темы форума. Для вставки нужен режим поста, допускающий HTML.</p><textarea id="htmlCode" readonly spellcheck="false" aria-label="Готовый HTML-код"></textarea></section>
+ <div class="caption">LILY-DALE · LOVE IS A BEAUTIFUL DISASTER</div>
+</main>
+<script>
+(function(){
+'use strict';
+// P — страсть; T — токсичность; R — романтика. Каждая шкала независима.
+const questions=[
+ {q:'Как всё начинается между ними?',choices:[
+ ['С осторожного, почти невинного интереса',[1,0,3],'Они умеют превращать невинный интерес в обещание чего-то большего.'],
+ ['С разговора, от которого становится жарко',[3,0,2],'Их разговоры опасно быстро перестают быть просто разговорами.'],
+ ['С соперничества и язвительных замечаний',[2,3,0],'Ни один из них не умеет проигрывать — особенно в игре на чувствах.'],
+ ['С одного поцелуя, который нельзя забыть',[4,1,2],'Один поцелуй делит их жизнь на «до» и «после».'],
+ ['С катастрофической ошибки',[3,4,1],'Они называют это ошибкой, хотя повторили бы её при первой возможности.']]},
+ {q:'Какой взгляд они бросают друг на друга?',choices:[
+ ['Мягкий, почти домашний',[1,0,4],'В одном взгляде помещается целый дом, где их всегда ждут.'],
+ ['Медленный, откровенно оценивающий',[4,1,1],'Один взгляд способен сжечь все тщательно продуманные оправдания.'],
+ ['Вызывающий: «Ну попробуй»',[3,3,0],'Каждый взгляд — вызов, на который невозможно не ответить.'],
+ ['Ревнивый, даже если никто не признаётся',[3,4,1],'Ревность здесь редко называется своим именем.'],
+ ['Такой, будто другой — последнее чудо на свете',[2,0,4],'Друг для друга они выглядят почти невозможным чудом.']]},
+ {q:'Их идеальный вечер?',choices:[
+ ['Плед, вино и разговоры до рассвета',[1,0,4],'Они умеют сделать даже тишину уютной.'],
+ ['Танец в пустом баре после закрытия',[3,0,3],'После последней песни танец почему-то не заканчивается.'],
+ ['Спонтанная поездка без маршрута',[2,1,3],'С ними даже заблудиться означает оказаться в нужном месте.'],
+ ['Маскарад с опасной игрой в незнакомцев',[4,2,1],'На маскараде их легче узнать по искрам, чем по лицам.'],
+ ['Скандал, примирение и разбитый бокал',[4,4,0],'Осколки стекла знают о них больше, чем друзья.']]},
+ {q:'Что чаще всего их разделяет?',choices:[
+ ['Страх испортить дружбу',[1,0,4],'Самое трудное — признаться в том, что давно очевидно.'],
+ ['Разные обязанности и обстоятельства',[2,1,3],'Обстоятельства против, но у сердца плохая дисциплина.'],
+ ['Гордость и неспособность уступать',[2,3,1],'Гордость умеет возводить стены быстрее любой магии.'],
+ ['Чужие интриги и запреты',[3,3,2],'Чем больше запретов, тем решительнее желание их нарушить.'],
+ ['Собственные секреты и манипуляции',[4,5,0],'Правда между ними слишком часто становится разменной монетой.']]},
+ {q:'Насколько откровенно они флиртуют?',choices:[
+ ['Краснеют от случайного касания',[1,0,4],'Случайное касание надолго лишает обоих дара речи.'],
+ ['Флиртуют изящно, почти незаметно',[2,0,3],'Их флирт — тонкое искусство недосказанности.'],
+ ['Обмениваются неприлично точными намёками',[4,1,1],'Приличный разговор превращается в испытание самообладания.'],
+ ['Проверяют чужую выдержку на прочность',[4,3,0],'Самообладание — единственная игра, в которой оба готовы жульничать.'],
+ ['Вообще не скрывают взаимного интереса',[5,1,2],'Они никогда не отличались осторожностью в выражении желаний.']]},
+ {q:'Какая вещь лучше всего символизирует эту пару?',choices:[
+ ['Два кольца на одной цепочке',[1,0,5],'Даже случайные мелочи у них становятся символами верности.'],
+ ['Чужая рубашка после ночи вместе',[4,0,2],'Некоторые вещи давно перестали принадлежать только одному владельцу.'],
+ ['Ключ от двери, которую открывают только двоим',[3,1,3],'Для целого мира существует дверь, за которой начинается только их история.'],
+ ['Письмо, которое нельзя отправлять',[2,2,4],'Неотправленные письма хранят слишком много нежности.'],
+ ['Разбитое зеркало с двумя отражениями',[3,5,0],'Даже зеркала не всегда выдерживают их противоречий.']]},
+ {q:'Что случается во время ссоры?',choices:[
+ ['Сначала пауза, потом честный разговор',[1,0,5],'После ссоры они выбирают услышать друг друга.'],
+ ['Кто-то приносит кофе и мирится первым',[1,0,4],'Любовь умеет говорить на языке маленьких жестов.'],
+ ['Слова жалят, но следом приходит сожаление',[3,2,2],'Самые острые слова всегда произносятся от страха потерять.'],
+ ['Двери хлопают, искры летят',[4,4,0],'Их конфликты вполне могли бы стать городским погодным явлением.'],
+ ['Оба пытаются сделать другого ревнивым',[3,5,0],'Они слишком хорошо знают слабости друг друга.']]},
+ {q:'Что может заставить их нарушить правила?',choices:[
+ ['Желание защитить любимого человека',[2,0,5],'Ради безопасности другого они готовы спорить даже с судьбой.'],
+ ['Один по-настоящему честный поцелуй',[4,0,3],'Оказывается, самые серьёзные решения принимаются без единого слова.'],
+ ['Тайная встреча в полночь',[4,2,2],'Полночь давно стала их личным сообщником.'],
+ ['Азарт: «Нам ведь никто не запретит?»',[4,3,0],'Запреты звучат для них как приглашения.'],
+ ['Страх, что другой выберет кого-то ещё',[3,5,1],'Страх потери иногда делает их опасно неразумными.']]},
+ {q:'Их главная слабость?',choices:[
+ ['Нежность, которую никто не должен видеть',[2,0,5],'Самая тщательно охраняемая тайна — их нежность.'],
+ ['Запах кожи и чужой парфюм',[4,0,2],'Память о чужом запахе сильнее любого заклинания.'],
+ ['Умение читать друг друга без слов',[2,1,4],'Никакие слова не нужны, когда оба слышат несказанное.'],
+ ['Потребность всегда побеждать',[3,4,0],'Даже близость иногда превращается для них в состязание.'],
+ ['Невозможность отпустить, даже когда больно',[4,5,0],'Притяжение порой оказывается сильнее здравого смысла.']]},
+ {q:'Что говорят о них в Лили-Дейле?',choices:[
+ ['«Они делают друг друга счастливее»',[1,0,5],'Город иногда замечает счастье раньше самих влюблённых.'],
+ ['«Там явно что-то есть!»',[2,0,3],'Слухи едва поспевают за их неуловимой химией.'],
+ ['«У них всё как в любовном романе»',[3,1,3],'Даже сплетники признают: сюжет получился захватывающий.'],
+ ['«Их лучше не оставлять вдвоём»',[4,3,1],'Оставить их вдвоём — это уже маленькая авантюра.'],
+ ['«Эти двое однажды сожгут город»',[5,5,0],'Городские службы держат их имена в отдельном списке.']]},
+ {q:'Если бы эта связь была музыкой?',choices:[
+ ['Тихий джаз у камина',[1,0,5],'Их мелодия звучит тихо, зато остаётся надолго.'],
+ ['Медленный блюз с хрипотцой',[3,0,3],'Их блюз всегда начинается с обещания ещё одного танца.'],
+ ['Готический рок с красивым припевом',[4,2,2],'Каждый припев напоминает о чувствах, которые не спрятать.'],
+ ['Панк-дуэль двух упрямцев',[4,4,1],'Их отношения слишком громкие для акустической версии.'],
+ ['Тревожная баллада о запретном',[3,4,2],'Это баллада, которой не положено иметь счастливый финал, — но она спорит.']]},
+ {q:'Как должен закончиться их роман?',choices:[
+ ['Домом, общими привычками и вечным «мы»',[1,0,5],'Им хочется построить будущее из самых простых вещей.'],
+ ['Обещанием встретиться в любой жизни',[2,0,5],'Даже чужие жизни не кажутся непреодолимой преградой.'],
+ ['Побегом навстречу неизвестности',[3,1,3],'Пусть весь мир подождёт: впереди дорога только для двоих.'],
+ ['Последним танцем перед катастрофой',[4,3,1],'Они выбирают танцевать, даже когда рушатся декорации.'],
+ ['Финалом, после которого читатели требуют продолжения',[4,2,2],'Их история просто не умеет заканчивать главы вовремя.']]}
+];
+const titles={
+ soft:['Гордость, нежность и пара поцелуев','Четыре свадьбы и одна ведьма','P.S. Я выбираю тебя','До встречи в полночь','Любовь в тумане','Чай, секреты и твои ладони','Абонемент на вечность','Книжный клуб разбитых сердец','Пока горят фонари','Дневник наших маленьких грехов'],
+ hot:['Девять с половиной полуночей','Пятьдесят оттенков полнолуния','Соблазн между строк','После полуночи — без цензуры','Королевство шипов и поцелуев','Порочная глава','Искушение в мягкой обложке','Инструкция по утрате самообладания','Свидание с тёмной стороной','Неприлично красивый сюжет','Любовник из соседнего кошмара','Чужая рубашка, общие тайны'],
+ dark:['Опасные связи при свечах','Гордость и предубеждение против нас','Пятьдесят оттенков красного флага','Клуб полуночных грешников','Сто один способ потерять голову','Наследие запретных желаний','Укрощение двух катастроф','Без права на счастливый финал','Пепел наших обещаний','Поцелуй, который всё разрушил','Анатомия красивой ошибки','Злодеи тоже целуются'],
+ intense:['Пятьдесят оттенков апокалипсиса','Девять с половиной способов сгореть','Слишком грешные для рая','Жестокие игры в любовь','Восемьдесят дней до бесстыдства','Король моих запретов','Искушение по контракту','Сожги эту главу','Там, где кончаются обещания','Тёмная сторона нашего вечного лета','Порочные связи Лили-Дейла','Двенадцать ночей без алиби']
+};
+const prompts=document.getElementById('questions'),selected=Array(questions.length).fill(-1);let rerolls=0;
+questions.forEach((item,i)=>{const section=document.createElement('section');section.className='question';const head=document.createElement('h3');head.textContent=(i+1)+'. '+item.q;section.appendChild(head);const list=document.createElement('div');list.className='options';item.choices.forEach((choice,j)=>{const btn=document.createElement('button');btn.className='option';btn.type='button';btn.textContent=choice[0];btn.setAttribute('aria-pressed','false');btn.onclick=()=>{selected[i]=j;list.querySelectorAll('button').forEach((b,k)=>{b.classList.toggle('selected',k===j);b.setAttribute('aria-pressed',String(k===j))});document.getElementById('error').textContent=''};list.appendChild(btn)});section.appendChild(list);prompts.appendChild(section)});
+const escapeHTML=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+const cleanURL=s=>/^https?:\/\/[^\s"'<>]+$/i.test(s)?s:'';
+const mean=(a)=>a.reduce((s,v)=>s+v,0)/a.length;
+const clamp=(x)=>Math.max(1,Math.min(5,Math.round(x)));
+const heatNames=['Едва тлеющая искра','Сладкое напряжение','Градус повышен','Пожар в пределах города','Пожарные уже не помогут'];
+const toxicNames=['Здоровые границы','Маленькие острые углы','Опасные игры','Красные флаги на ветру','Красный флаг размером с Лили-Дейл'];
+const loveNames=['Романтика под вопросом','Нежность просыпается','Чувства между строк','Почти любовный роман','Любовь, пережившая любую Изнанку'];
+function count(n){return '●'.repeat(n)+'○'.repeat(5-n)}
+function imageHTML(url,w,h,label){const basic='display:block;width:'+w+'px;height:'+h+'px;max-width:none;min-width:'+w+'px;object-fit:cover;border:0;margin:0;padding:0;';return url?'<img src="'+escapeHTML(url)+'" width="'+w+'" height="'+h+'" alt="'+escapeHTML(label)+'" style="'+basic+'">':'<div style="width:'+w+'px;height:'+h+'px;background:linear-gradient(135deg,#714054,#311e30);color:#d4b4be;display:table-cell;vertical-align:middle;text-align:center;font:12px Arial,sans-serif;">'+escapeHTML(label)+'</div>'}
+function build(){if(selected.some(x=>x<0)){document.getElementById('error').textContent='Ответь на все 12 вопросов — магический термометр требует полной картины!';return}
+ const scores=[0,1,2].map(axis=>clamp(mean(selected.map((j,i)=>questions[i].choices[j][1][axis]))));const [passion,toxic,romance]=scores;
+ const bank=toxic>=4?(passion>=4?titles.intense:titles.dark):passion>=4?titles.hot:romance>=4?titles.soft:titles.dark;
+ const seed=selected.reduce((sum,n,i)=>sum+(i+2)*(n+1),0);const title=bank[(seed+rerolls)%bank.length];
+ // The answers select imagery and emotional direction; the final text is a continuous vignette.
+ const openings=[
+  'Всё началось настолько тихо, что даже туман Лили-Дейла не заметил, когда случайная встреча превратилась в привычку искать друг друга глазами.',
+  'У этой истории был вкус недосказанности: слова задерживались на губах, а взгляды выдавали то, что никто не решался произнести вслух.',
+  'Между ними давно натянута невидимая нить. Стоит одному сделать шаг — и весь мир вокруг второго теряет привычные очертания.',
+  'Лили-Дейл умеет хранить секреты, но с этим у него явно не получится: некоторые чувства светятся даже сквозь самый густой ноябрьский туман.',
+  'Их первая ошибка заключалась в том, что оба решили: сумеют вовремя остановиться. Город, повидавший немало чудес, наверняка усмехнулся бы.'
+ ];
+ const settings=[
+  'Вечер пахнет терпким вином и дождём по стеклу; за окном медленно гаснут фонари, словно оставляя их наедине с невысказанным.',
+  'За закрытыми дверями бара музыка становится тише, зато каждый вдох и каждое неловкое молчание звучат почти оглушительно.',
+  'Дорога растворяется в темноте, чужая ладонь оказывается рядом, а направление внезапно перестаёт иметь хоть какое-то значение.',
+  'Под масками легче прятать имена, чем желания. В золотистом свете чужие силуэты исчезают, и остаётся только знакомое сердцебиение.',
+  'На полу мерцают осколки бокала. Воздух ещё хранит отзвук ссоры, но никто не спешит уходить: слишком многое осталось несказанным.'
+ ];
+ const gestures=[
+  'Их нежность живёт в мелочах: в поправленном воротнике, в оставленном на столе ключе, в тихом «останься», сказанном почти шёпотом.',
+  'Всё, что не умещается в признание, остаётся на чужой рубашке — тонким следом аромата и памятью о тепле.',
+  'У них есть собственный язык: короткий взгляд через комнату, движение навстречу и уверенность, что тебя поймут без объяснений.',
+  'Они похожи на две встречные грозы. И сколько бы ни спорили о том, кому уступить дорогу, ни один не хочет сворачивать.',
+  'Порой им кажется, будто Изнанка держит между ними зеркало: каждое желание отражается дважды, а каждая слабость становится слишком заметной.'
+ ];
+ const conflict=[
+  'Здесь не нужно побеждать друг друга. Даже после самой тяжёлой ночи остаётся возможность сесть рядом и наконец услышать ответ.',
+  'Примирение приходит без фанфар: с тёплой чашкой в руках и осторожным прикосновением к плечу, которое значит больше извинений.',
+  'Они умеют ранить словами, но ещё учатся возвращаться — через гордость, сквозь обиду, навстречу самому трудному разговору.',
+  'Иногда между ними вспыхивает настоящее бедствие: хлопают двери, тени вытягиваются по стенам, и только потом наступает тишина.',
+  'Ревность вырастает там, где стоило бы поселиться доверию. Они слишком хорошо знают, куда ударить, и не всегда успевают остановить себя.'
+ ];
+ const passionLine=passion>=4?'Стоит оказаться слишком близко — и воздух становится горячим, будто перед летней грозой. В этом притяжении нет ничего случайного: только опасная, почти осязаемая жажда ещё одного мгновения.':passion>=3?'Каждое прикосновение похоже на недописанную фразу: короткую, обманчиво невинную и обещающую куда больше, чем позволено произнести.':'Искра пока прячется под пеплом повседневности. Но иногда одного взгляда достаточно, чтобы понять: пепел ещё тёплый.';
+ const shadowLine=toxic>=4?'У этой красоты есть изнанка: острые края, собственнические жесты и страх потерять власть над тем, кого хочется удержать. Такую любовь нельзя назвать безопасной — и тем важнее однажды решить, что с ней делать.':toxic>=3?'Гордость то и дело подмешивает горечь в сладость близости. Им придётся научиться не превращать страх потери в оружие.':toxic===2?'Они порой задевают самые больные места, но ещё способны вовремя разжать пальцы и дать друг другу пространство.':'Их сближение не требует капитуляции. Здесь можно быть собой, не пряча слабостей и не боясь, что доверие обернут против тебя.';
+ const finalLines=[
+  'Будет ли у этого сюжета счастливый финал, пока не знает даже Оракул. Некоторые истории выбирают пламя, а не обещания.',
+  'Возможно, они ещё долго не назовут происходящее любовью. Но город запомнит, как меняется тишина, когда эти двое встречаются.',
+  'И всё же под слоями недоверия теплится робкая надежда: однажды перестать убегать и позволить себе остаться.',
+  'И где-то между полуночью и рассветом становится ясно: за всеми опасными играми скрывалось простое желание быть нужными друг другу.',
+  'Пусть за окном снова сгущается Изнанка. В их маленьком мире уже зажёгся свет, который не так-то просто погасить.'
+ ];
+ const description=openings[selected[0]]+' '+settings[selected[2]]+'\n\n'+passionLine+' '+gestures[selected[5]]+' '+shadowLine+' '+conflict[selected[6]]+'\n\n'+finalLines[romance-1];
+ const names=[document.getElementById('nameA').value.trim(),document.getElementById('nameB').value.trim()];
+ const urls=Array.from({length:8},(_,i)=>cleanURL(document.getElementById('image'+i).value.trim()));
+ const portraitLabels=['ПЕРСОНАЖ I','ПЕРСОНАЖ II'];const moodLabels=['НА ВКУС','АТМОСФЕРА','АРОМАТ','САУНДТРЕК','ПРИКОСНОВЕНИЕ','ИСКУШЕНИЕ'];
+ const cell=(body,width)=>'<td width="'+width+'" style="width:'+width+'px;min-width:'+width+'px;max-width:'+width+'px;padding:0;margin:0;border:0;vertical-align:top;">'+body+'</td>';
+ let html='<div style="width:700px;min-width:700px;max-width:700px;margin:0 auto;padding:0;background:#241521;color:#f6deda;font-family:Georgia,serif;box-sizing:content-box;overflow:hidden;">';
+ html+='<div style="padding:23px 15px 18px;text-align:center;background:#321b2c;border-bottom:2px solid #b37a73;"><div style="font:10px Arial,sans-serif;letter-spacing:4px;color:#dcb18f;">LILY-DALE · BEYOND THE VEIL</div><div style="font:normal 37px Georgia,serif;color:#f6d2b3;margin-top:8px;">HOT PAIRING</div><div style="font:italic 14px Georgia,serif;color:#cfadb8;margin-top:5px;">a beautiful disaster</div></div>';
+ html+='<table cellpadding="0" cellspacing="0" border="0" style="table-layout:fixed;width:700px;min-width:700px;max-width:700px;border-collapse:collapse;border:0;margin:0;"><tbody><tr>';
+ for(let i=0;i<2;i++){const picture=imageHTML(urls[i],350,285,portraitLabels[i]);const label=escapeHTML(names[i]||portraitLabels[i]);html+=cell(picture+'<div style="width:350px;min-width:350px;height:35px;line-height:35px;background:#432438;color:#f6d2b3;font:14px/35px Georgia,serif;text-align:center;letter-spacing:1px;">'+label+'</div>',350)}
+ html+='</tr></tbody></table>';
+ html+='<div style="height:35px;line-height:35px;text-align:center;background:#1d111e;color:#d4a27c;font:11px/35px Arial,sans-serif;letter-spacing:3px;">SIX SINS · ONE STORY</div>';
+ for(let row=0;row<2;row++){html+='<table cellpadding="0" cellspacing="0" border="0" style="table-layout:fixed;width:700px;min-width:700px;max-width:700px;border-collapse:collapse;margin:0;border:0;"><tbody><tr>';for(let col=0;col<3;col++){let idx=row*3+col,w=col===2?234:233;html+=cell(imageHTML(urls[idx+2],w,158,moodLabels[idx])+'<div style="width:'+w+'px;min-width:'+w+'px;height:26px;background:#362033;text-align:center;color:#d6abb5;font:10px/26px Arial,sans-serif;letter-spacing:1px;">'+moodLabels[idx]+'</div>',w)}html+='</tr></tbody></table>'}
+ html+='<div style="padding:25px 35px 27px;text-align:center;background:#291827;border-top:2px solid #ae7570;"><div style="font:10px Arial,sans-serif;letter-spacing:3px;color:#d5a17f;">THE VERDICT</div><div style="font:normal 30px/1.2 Georgia,serif;color:#f2c7a1;padding:12px 0 20px;">'+escapeHTML(title)+'</div>';
+ const rows=[['🌶️ СТРАСТЬ',passion,heatNames[passion-1],'#e9a16e'],['🚩 ТОКСИЧНОСТЬ',toxic,toxicNames[toxic-1],'#d67d8a'],['♥ РОМАНТИКА',romance,loveNames[romance-1],'#e2b0bf']];
+ for(const [label,n,caption,color] of rows){html+='<div style="margin:0 0 14px;text-align:left;border-bottom:1px solid #5c3a4f;padding:0 0 11px;"><div style="font:12px Arial,sans-serif;color:'+color+';">'+label+' <span style="float:right;font-weight:bold;">'+n+'/5</span></div><div style="font:bold 16px Arial,sans-serif;color:'+color+';letter-spacing:5px;margin:6px 0 3px;">'+count(n)+'</div><div style="font:italic 13px Georgia,serif;color:#d8b7c2;">'+escapeHTML(caption)+'</div></div>'}
+ html+='<div style="padding:10px 0 3px;color:#f2dcdf;font:15px/1.75 Georgia,serif;text-align:left;white-space:pre-line;">'+escapeHTML(description)+'</div></div><div style="background:#1b101b;text-align:center;padding:15px;color:#c59886;font:10px Arial,sans-serif;letter-spacing:3px;">LILY-DALE · TOO HOT TO HIDE</div></div>';
+ document.getElementById('htmlCode').value=html;document.getElementById('preview').innerHTML=html;document.getElementById('previewShell').hidden=false;document.getElementById('output').hidden=false;document.getElementById('previewShell').scrollIntoView({behavior:'smooth',block:'start'});
+}
+document.getElementById('generate').onclick=build;document.getElementById('reroll').onclick=()=>{rerolls++;build()};document.getElementById('clear').onclick=()=>{selected.fill(-1);rerolls=0;prompts.querySelectorAll('.option').forEach(b=>{b.classList.remove('selected');b.setAttribute('aria-pressed','false')});document.getElementById('error').textContent='';document.getElementById('previewShell').hidden=true;document.getElementById('output').hidden=true};
+document.getElementById('copy').onclick=async()=>{const code=document.getElementById('htmlCode').value;let ok=false;try{await navigator.clipboard.writeText(code);ok=true}catch(e){const el=document.getElementById('htmlCode');el.select();try{ok=document.execCommand('copy')}catch(_){}}const btn=document.getElementById('copy');btn.textContent=ok?'✓ HTML скопирован':'Выдели код и скопируй';setTimeout(()=>btn.textContent='Скопировать готовый HTML',2300)};
+})();
+</script></body></html>
